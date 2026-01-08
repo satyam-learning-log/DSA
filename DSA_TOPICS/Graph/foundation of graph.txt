@@ -1,0 +1,68 @@
+Core concepts, algorithms, and techniques a beginner must learn for graphs (data structure), organized by priority and with brief why/how notes.
+Foundations (must know)
+Definitions and terminology
+Vertex/node, edge, directed vs undirected, weighted vs unweighted, multigraph, simple graph, self-loop, degree, indegree/outdegree, path, cycle, connected component, strongly/weakly connected, bipartite graph, tree.
+Representations
+Adjacency list (space-efficient, common), adjacency matrix (O(1) edge check, dense graphs), edge list (useful for algorithms like Kruskal).
+Basic traversal
+Depth-first search (DFS): recursion/stack, discovery/finish times, use for connectivity, cycle detection, topological sort.
+Breadth-first search (BFS): shortest path in unweighted graphs, level-order, queue-based.
+Essential algorithms and patterns
+Shortest paths
+BFS for unweighted graphs.
+Dijkstra’s algorithm (non-negative weights): priority queue, relaxations, time complexity variations.
+Bellman–Ford (graphs with negative edges; detects negative cycles).
+Floyd–Warshall (all-pairs shortest paths; dynamic programming, O(n^3)).
+Minimum spanning trees (for undirected weighted graphs)
+Kruskal’s algorithm: sort edges, union-find (disjoint set) for cycle detection.
+Prim’s algorithm: grow tree with min-heap, good for dense graphs with adjacency matrix.
+Topological sort
+Kahn’s algorithm (indegree queue) and DFS-based order; use for DAG scheduling.
+Connectivity and components
+Connected components (undirected): DFS/BFS.
+Strongly connected components (directed): Kosaraju’s, Tarjan’s (lowlink).
+Cycle detection
+Directed: DFS color/recursion stack method.
+Undirected: DFS/BFS with parent-tracking.
+Bipartite checking
+BFS/DFS coloring (two-coloring), relation to odd-length cycles.
+Matching (introductory)
+Bipartite matching basics: Ford–Fulkerson, Hopcroft–Karp (faster).
+Network flow (introductory)
+Max flow: Edmonds–Karp (BFS-based augmenting paths), Dinic’s (level graph), applications to matching and cuts.
+Graph transformations and reductions
+Converting problems into shortest paths, flow, MST, matching; modelling tips.
+Important tooling & techniques
+Complexity analysis
+Time/space bounds for adjacency list vs matrix, per-edge/per-vertex amortized reasoning, priority queue costs.
+Data structures used with graphs
+Heaps/priority queues, union-find (with path compression & union by rank), stacks/queues, hash maps/sets.
+Implementation patterns
+Edge relaxation, visited sets, parent arrays, explicit stacks to avoid recursion limits, iterative DFS.
+Correctness/debugging strategies
+Small example tests, invariants (e.g., distances nonincreasing after relaxations), printing traversal orders, visualizing graphs.
+Advanced/topics to encounter next
+Planar graphs, graph embeddings.
+Graph isomorphism (basic idea).
+Spectral graph theory (Laplacian, eigenvalues) — basics for ML.
+Random graphs, probabilistic properties.
+Approximation and NP-hard problems on graphs: TSP, vertex cover, dominating set.
+Dynamic graphs, streaming graphs, large-scale graph processing frameworks (Pregel, GraphX).
+Learning path (practical sequence)
+Learn representations and implement adjacency list/matrix.
+Implement BFS and DFS; practice on connectivity, shortest path (unweighted), cycle detection.
+Study Dijkstra and Bellman–Ford; implement and compare on small examples.
+Learn MST algorithms (Kruskal with union-find, Prim).
+Implement topological sort and SCC algorithms (Kosaraju or Tarjan).
+Study bipartite matching and basic max-flow (Edmonds–Karp), then Dinic and Hopcroft–Karp.
+Solve progressive problems (coding practice) varying size/constraints to internalize complexity trade-offs.
+Resources and practice tips
+Visualizers: Visualgo, GraphTea, or interactive graph visualizers to see traversals.
+Problem sets: start with standard problems (shortest path, MST, SCC, topological sort) on platforms like LeetCode, Codeforces, HackerRank.
+Implement by hand, then compare to library implementations. Time small examples on paper to master invariants.
+Common pitfalls
+Using adjacency matrix for large sparse graphs (memory/time waste).
+Forgetting to mark visited or handle parent in undirected cycle detection.
+Not handling negative weights appropriately (using Dijkstra with negatives).
+Ignoring disconnected components in global algorithms.
+This set gives a compact, practical roadmap: master representations and traversals first, then shortest paths/MST/flow/SCC, and practice varied problems to build intuition and implementation fluency.
