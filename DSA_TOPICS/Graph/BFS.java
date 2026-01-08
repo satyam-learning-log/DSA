@@ -24,18 +24,18 @@ public class BFS {
     public static void main(String [] args){
         int n = 7;
         int m = 6;
-        int edges [][] = {{1,2},{1,3},{2,6},{2,7},{3,4},{4,5}};
-        int visited [] = new int[8];
+        //int edges [][] = {{1,2},{1,3},{2,6},{2,7},{3,4},{4,5}};
+        int edges [][] = {{1,2},{1,3},{3,4},{2,5},{6,4},{5,6}};
+        int visited [] = new int[7];
         Queue<Integer> queue = new LinkedList<>();
-        int start = 7;
+        int start = 1;
 
         buildAdjacencyList(edges);
         queue.add(start);
-
+        visited[start] = 1;
         while(!queue.isEmpty()){
 
             int element = queue.poll();
-            visited[element] = 1;
 
             System.out.println(element);
 
@@ -44,6 +44,7 @@ public class BFS {
             for(int i=0; i<tovisit.size(); i++){
                 if(visited[tovisit.get(i)]!=1){
                     queue.offer(tovisit.get(i));
+                    visited[tovisit.get(i)] = 1;
                 }
             }
 
