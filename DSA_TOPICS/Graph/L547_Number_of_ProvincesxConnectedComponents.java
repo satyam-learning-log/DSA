@@ -33,7 +33,7 @@ public class L547_Number_of_ProvincesxConnectedComponents {
         int count = 0;
         for(int i=0; i<n; i++){
             if(visited[i]==0){
-                visit(i,visited);
+                DFS(i,visited);
                 count++;
             }
         }
@@ -49,7 +49,7 @@ public class L547_Number_of_ProvincesxConnectedComponents {
 
         for (int i = 0; i < visited.length; i++) {
             if (visited[i] != 1) {
-                visit(i, visited, isConnected);
+                DFS(i, visited, isConnected);
                 count++;
             }
         }
@@ -58,22 +58,22 @@ public class L547_Number_of_ProvincesxConnectedComponents {
 
     }
 
-    private static void visit(int start , int visited [] , int[][] isConnected ){
+    private static void DFS(int start , int visited [] , int[][] isConnected ){
         visited[start]=1;
 
         for(int j=0; j<isConnected.length; j++){
             if(isConnected[start][j] ==1  && visited[j]!=1 && start !=j ){
-                visit(j,visited,isConnected);
+                DFS(j,visited,isConnected);
             }
         }
     }
 
-    private static void visit(int start , int [] visited ) {
+    private static void DFS(int start , int [] visited ) {
         visited[start]=1;
         List<Integer> toVisit = adjacencyList.get(start);
         for(int i=0; i<toVisit.size(); i++){
             if(visited[toVisit.get(i)]==0)
-            visit(toVisit.get(i),visited);
+            DFS(toVisit.get(i),visited);
         }
 
     }

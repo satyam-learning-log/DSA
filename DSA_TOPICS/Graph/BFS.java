@@ -19,9 +19,47 @@ public class BFS {
 
     }
 
+    private static void BFSonAdjList(int start , Queue<Integer> queue  , int visited [] ) {
+        queue.add(start);
+        visited[start] = 1;
+        while (!queue.isEmpty()) {
+
+            int element = queue.poll();
+
+            System.out.println(element);
+
+            List<Integer> tovisit = adjacencyList.get(element);
+
+            for (int i = 0; i < tovisit.size(); i++) {
+                if (visited[tovisit.get(i)] != 1) {
+                    queue.offer(tovisit.get(i));
+                    visited[tovisit.get(i)] = 1;
+                }
+            }
+
+        }
+    }
 
 
-    public static void main(String [] args){
+    private static void BFSOnAdjMatrix(int start , Queue<Integer> queue  , int visited [] , int [][] AdjMatrix ){
+        queue.add(start);
+        visited[start]=1;
+
+        while(!queue.isEmpty()){
+            int vertex = queue.poll();
+            System.out.println(vertex);
+
+            for(int i=vertex; i<AdjMatrix.length; i++){
+                if(visited[i]!=1){
+                    queue.offer(i);
+                    visited[i]=1;
+                }
+            }
+        }
+    }
+
+
+    public static void main(String[] args){
         int n = 7;
         int m = 6;
         //int edges [][] = {{1,2},{1,3},{2,6},{2,7},{3,4},{4,5}};
@@ -31,24 +69,15 @@ public class BFS {
         int start = 1;
 
         buildAdjacencyList(edges);
-        queue.add(start);
-        visited[start] = 1;
-        while(!queue.isEmpty()){
+        System.out.println("BFS on Adjacency List");
+        BFSonAdjList(start,queue,visited);
 
-            int element = queue.poll();
+        int AdjMatrix [][] = {{0,1,1},{1,0,1},{1,1,0}};
+        int AdjMatrixStart = 0;
+        int AdjMatrixVisited[] = new int[AdjMatrix.length];
+        System.out.println("BFS on Adjacency Matrix");
+        BFSOnAdjMatrix(AdjMatrixStart ,  queue  ,AdjMatrixVisited ,  AdjMatrix );
 
-            System.out.println(element);
-
-            List<Integer> tovisit = adjacencyList.get(element);
-
-            for(int i=0; i<tovisit.size(); i++){
-                if(visited[tovisit.get(i)]!=1){
-                    queue.offer(tovisit.get(i));
-                    visited[tovisit.get(i)] = 1;
-                }
-            }
-
-        }
 
     }
 }
