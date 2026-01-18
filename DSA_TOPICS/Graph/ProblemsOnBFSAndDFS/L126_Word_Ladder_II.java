@@ -7,7 +7,7 @@ public class L126_Word_Ladder_II {
         private K key;
         private V value;
 
-        
+
         private Pair(K key , V value){
             this.key = key;
             this.value = value;
