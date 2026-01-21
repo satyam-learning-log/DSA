@@ -33,7 +33,8 @@ public class AZ_Detect_Cycle_In_Graph_DFS {
        return false;
     }
     public static void main(String[] args){
-        int edges [][] = {{1,2},{1,3},{3,4},{3,6},{2,5},{5,7},{6,7}};
+        //added a edge to test is it handle self loop
+        int edges [][] = {{1,2},{1,1},{1,3},{3,4},{3,6},{2,5},{5,7},{6,7}};
         int visited [] = new int[8];
         int start = 1;
         buildAdjacencyList(edges);
