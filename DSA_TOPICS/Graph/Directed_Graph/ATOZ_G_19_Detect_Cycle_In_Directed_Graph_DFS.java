@@ -3,7 +3,7 @@ package Directed_Graph;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ATOZ_G_19_Detect_Cycle_In_Directed_Graph {
+public class ATOZ_G_19_Detect_Cycle_In_Directed_Graph_DFS {
     static List<List<Integer>> adjacencyList = new ArrayList<>();
 
 

@@ -2,7 +2,7 @@ package Directed_Graph;
 
 
 import  java.util.*;
-public class Algo_Topological_Sort {
+public class Algo_Topological_Sort_DFS {
 
     static List<List<Integer>> adjacencyList = new ArrayList<>();
 

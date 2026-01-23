@@ -2,7 +2,7 @@ package Directed_Graph;
 
 import java.util.*;
 
-public class Algo_Kahns_Topological_Sort {
+public class Algo_Kahns_Topological_Sort_BFS {
     static List<List<Integer>> adjacencyList = new ArrayList<>();
 
 
