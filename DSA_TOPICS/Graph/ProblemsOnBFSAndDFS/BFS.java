@@ -1,3 +1,5 @@
+package ProblemsOnBFSAndDFS;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -69,13 +71,13 @@ public class BFS {
         int start = 1;
 
         buildAdjacencyList(edges);
-        System.out.println("BFS on Adjacency List");
+        System.out.println("ProblemsOnBFSAndDFS.BFS on Adjacency List");
         BFSonAdjList(start,queue,visited);
 
         int AdjMatrix [][] = {{0,1,1},{1,0,1},{1,1,0}};
         int AdjMatrixStart = 0;
         int AdjMatrixVisited[] = new int[AdjMatrix.length];
-        System.out.println("BFS on Adjacency Matrix");
+        System.out.println("ProblemsOnBFSAndDFS.BFS on Adjacency Matrix");
         BFSOnAdjMatrix(AdjMatrixStart ,  queue  ,AdjMatrixVisited ,  AdjMatrix );
 
 

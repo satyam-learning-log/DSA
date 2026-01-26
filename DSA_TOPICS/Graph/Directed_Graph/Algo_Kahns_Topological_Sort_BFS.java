@@ -29,7 +29,7 @@ public class Algo_Kahns_Topological_Sort_BFS {
         Stack<Integer> stack = new Stack<>();
         Queue<Integer> queue = new LinkedList<>();
 
-        //BFS
+        //ProblemsOnBFSAndDFS.BFS
         for(int i=0; i<indgree.length; i++){
             if(indgree[i]==0) queue.offer(i);
         }

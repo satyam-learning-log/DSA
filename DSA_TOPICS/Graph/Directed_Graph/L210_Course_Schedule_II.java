@@ -57,7 +57,7 @@ public class L210_Course_Schedule_II {
 
         if(isBFS) {
             List<List<Integer>> adjacencyList = new ArrayList<>();
-            //BFS ->
+            //ProblemsOnBFSAndDFS.BFS ->
             int indgree[] = new int[numCourses];
             buildAdjacencyListAndIndgree_BFS(prerequisites, numCourses, indgree, adjacencyList);
             Stack<Integer> stack = new Stack<>();
@@ -119,7 +119,7 @@ public class L210_Course_Schedule_II {
 
 
 
-        //DFS ->
+        //ProblemsOnBFSAndDFS.DFS ->
 
         //build adjacency list
         //check for cycle and put values in the stack

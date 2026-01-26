@@ -5,7 +5,7 @@ import java.util.*;
 public class ATOZ_G_26_Alien_dictionary {
 
 
-    
+
    public static boolean createAdjacencyList(int N , int K , int [] indgree , String[] dict , List<List<Integer>> adjacencyList){
 
        for(int i=0; i<K; i++){

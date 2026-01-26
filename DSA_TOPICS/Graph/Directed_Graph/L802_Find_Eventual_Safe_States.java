@@ -7,7 +7,7 @@ public class L802_Find_Eventual_Safe_States {
     // Return safe node (Node's who's every path leads to terminal node)
     // If we we think oppositly and reverse all edges in opposite direction
     // Return Nodes which will  not have an incoming edge
-    // Then question comes down's to BFS - topological sort on a directed tree while queue is not Empty.
+    // Then question comes down's to ProblemsOnBFSAndDFS.BFS - topological sort on a directed tree while queue is not Empty.
 
     public void createOppositeAdjancencyList(int numberOfNodes, int[][] graph, List<List<Integer>> adjacencyList ,  int[] indgree) {
 
@@ -42,7 +42,7 @@ public class L802_Find_Eventual_Safe_States {
             }
         }
 
-        //BFS
+        //ProblemsOnBFSAndDFS.BFS
         while(!queue.isEmpty()){
 
             //POP - each element

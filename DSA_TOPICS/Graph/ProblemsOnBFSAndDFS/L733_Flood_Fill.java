@@ -21,7 +21,7 @@ public class L733_Flood_Fill {
 
     public int[][] floodFill(int[][] image, int sr, int sc, int color) {
 
-        //DFS approch
+        //ProblemsOnBFSAndDFS.DFS approch
         int orgColor =  image[sr][sc];
         // no need to update
         if(orgColor==color) return image;
@@ -29,7 +29,7 @@ public class L733_Flood_Fill {
         return image;
 
        /*
-       // BFS approch
+       // ProblemsOnBFSAndDFS.BFS approch
 
         int orgcolor = image[sr][sc];
         if(orgcolor==color) return image;
