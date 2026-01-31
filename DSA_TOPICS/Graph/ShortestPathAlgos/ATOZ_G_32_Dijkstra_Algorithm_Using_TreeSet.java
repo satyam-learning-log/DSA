@@ -1,18 +1,15 @@
 package ShortestPathAlgos;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
-
 import java.util.*;
 
-public class ATOZ_G_32_Dijkstra_Algorithm_Using_Priority_Queue {
-
+public class ATOZ_G_32_Dijkstra_Algorithm_Using_TreeSet {
 
     public static void buildAdjacencyListWithCost(int n , int edges[][][] , List<List<int[]>> adjacencyList){
+
         for(int i=0; i<n; i++){
             adjacencyList.add(new ArrayList<>());
         }
+
         for(int i=0; i<edges.length; i++){
             int neighbors [][] = edges[i];
             for(int j=0; j<neighbors.length; j++){
@@ -24,29 +21,26 @@ public class ATOZ_G_32_Dijkstra_Algorithm_Using_Priority_Queue {
         }
     }
 
-
     public static void Dijkstra_Algo(int source , List<List<int[]>> adjacencyList , int cost[]){
 
-        // initially add source in the queue
-        // iterate using loop while (q.isEmpty())
-        // pop a node - pq picks smallest one
-        // visit it's neighbors if cost[current]+cost[current->neighbor] < cost[neighbor]
-        // add node in the queue
+        TreeSet<List<Integer>> set = new TreeSet<>(
+                (a,b)->{
+                    if(!a.get(0).equals(b.get(0)))
+                        return a.get(0) - b.get(0);
+                    return a.get(1) - b.get(1);
+        });
 
-        Queue<int[]> queue = new PriorityQueue<>((a,b)->Integer.compare(a[1],b[1]));
+        //adding source
+        set.add(Arrays.asList(0,0));
         cost[source]=0;
-        queue.offer(new int[]{source,cost[source]});
 
 
-        while(!queue.isEmpty()){
+        while(!set.isEmpty()){
 
-            int current[] = queue.poll();
+            List<Integer> current =set.pollFirst();
 
-            int node = current[0];
-            int costToReachCurrFromSource = current[1];
-
-           //if a certain node is already visited at lower cost than no need to visit it again .
-            if(cost[node]<costToReachCurrFromSource) continue;
+            int node = current.get(1);
+            int costToReachCurrFromSource = current.get(0);
 
             List<int[]> neighbors = adjacencyList.get(node);
 
@@ -55,28 +49,35 @@ public class ATOZ_G_32_Dijkstra_Algorithm_Using_Priority_Queue {
                 int neighbor = neighbors.get(i)[0];
                 int costToReachNeighbor = neighbors.get(i)[1];
 
+
+
                 if(cost[neighbor]>costToReachCurrFromSource+costToReachNeighbor){
-                    cost[neighbor]=costToReachCurrFromSource+costToReachNeighbor;
-                    queue.offer(new int[]{neighbor,  cost[neighbor]});
+
+                    //remove entry from set
+                    set.remove(Arrays.asList(cost[neighbor],neighbor));
+
+                    int newCost = costToReachCurrFromSource+costToReachNeighbor;
+                    cost[neighbor]=newCost;
+                    set.add(Arrays.asList(newCost,neighbor));
                 }
+
+
             }
 
         }
     }
 
     public static void main(String [] args){
-        //build adjacency with cost
-        //initialize cost with infinity
-        //start recurrsive call from start
-        //for current node visit its adjacents
-        //update the cost
-        //add in a priority queue
 
-        //choose peak as source
-        //mark current node as visited
-
-        int n = 6;
-        int edges[][][]={{{1,2},{2,8}},{{2,5},{3,8}},{{3,1}},{{4,4},{5,6}},{{5,10}}};
+       //   {to,cost}
+         int n = 5;
+        int edges[][][]={
+                {{1,4},{2,100},{3,6},{4,7}}
+                ,{{3,2},{2,6},{0,4}}
+                ,{{3,8},{4,2},{1,6},{0,100}}
+                ,{{4,4},{0,6},{1,2},{2,8}}
+                ,{{0,7},{3,4},{2,2}}
+        };
 
         List<List<int[]>> adjacencyList = new ArrayList<>();
         int cost [] = new int[n];
