@@ -45,7 +45,7 @@ public class ATOZ_G_32_Dijkstra_Algorithm_Using_Priority_Queue {
             int node = current[0];
             int costToReachCurrFromSource = current[1];
 
-           //if a certain node is already visited at lower cost than no need to visit it again .
+           //if a certain node is already visited at lower cost than no need to visit it again .  
             if(cost[node]<costToReachCurrFromSource) continue;
 
             List<int[]> neighbors = adjacencyList.get(node);
