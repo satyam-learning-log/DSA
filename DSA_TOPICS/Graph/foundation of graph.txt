@@ -1,29 +1,50 @@
 Core concepts, algorithms, and techniques a beginner must learn for graphs (data structure), organized by priority and with brief why/how notes.
 Foundations (must know)
+
+
 Definitions and terminology
 Vertex/node, edge, directed vs undirected, weighted vs unweighted, multigraph, simple graph, self-loop, degree, indegree/outdegree, path, cycle, connected component, strongly/weakly connected, bipartite graph, tree.
+
+
 Representations
 Adjacency list (space-efficient, common), adjacency matrix (O(1) edge check, dense graphs), edge list (useful for algorithms like Kruskal).
+
 Basic traversal
 Depth-first search (ProblemsOnBFSAndDFS.DFS): recursion/stack, discovery/finish times, use for connectivity, cycle detection, topological sort.
 Breadth-first search (ProblemsOnBFSAndDFS.BFS): shortest path in unweighted graphs, level-order, queue-based.
+
+
 Essential algorithms and patterns
 Shortest paths
 ProblemsOnBFSAndDFS.BFS for unweighted graphs.
+
 Dijkstra’s algorithm (non-negative weights): priority queue, relaxations, time complexity variations.
+
 Bellman–Ford (graphs with negative edges; detects negative cycles).
+
 Floyd–Warshall (all-pairs shortest paths; dynamic programming, O(n^3)).
-Minimum spanning trees (for undirected weighted graphs)
+
+
+
+Minimum spanning trees (for undirected weighted graphs):
+
 Kruskal’s algorithm: sort edges, union-find (disjoint set) for cycle detection.
 Prim’s algorithm: grow tree with min-heap, good for dense graphs with adjacency matrix.
+
+
 Topological sort
 Kahn’s algorithm (indegree queue) and ProblemsOnBFSAndDFS.DFS-based order; use for DAG scheduling.
 Connectivity and components
+
 Connected components (undirected): ProblemsOnBFSAndDFS.DFS/ProblemsOnBFSAndDFS.BFS.
 Strongly connected components (directed): Kosaraju’s, Tarjan’s (lowlink).
+
+
 Cycle detection
 Directed: ProblemsOnBFSAndDFS.DFS color/recursion stack method.
 Undirected: ProblemsOnBFSAndDFS.DFS/ProblemsOnBFSAndDFS.BFS with parent-tracking.
+
+
 Bipartite checking
 ProblemsOnBFSAndDFS.BFS/ProblemsOnBFSAndDFS.DFS coloring (two-coloring), relation to odd-length cycles.
 Matching (introductory)
@@ -32,6 +53,8 @@ Network flow (introductory)
 Max flow: Edmonds–Karp (ProblemsOnBFSAndDFS.BFS-based augmenting paths), Dinic’s (level graph), applications to matching and cuts.
 Graph transformations and reductions
 Converting problems into shortest paths, flow, MST, matching; modelling tips.
+
+
 Important tooling & techniques
 Complexity analysis
 Time/space bounds for adjacency list vs matrix, per-edge/per-vertex amortized reasoning, priority queue costs.
