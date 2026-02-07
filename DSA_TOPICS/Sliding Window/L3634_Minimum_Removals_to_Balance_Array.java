@@ -1,3 +1,6 @@
+
+import java.util.*;
+
 public class L3634_Minimum_Removals_to_Balance_Array {
     public int indexOfMinIntoKTimes(long target, int[] nums) {
 
