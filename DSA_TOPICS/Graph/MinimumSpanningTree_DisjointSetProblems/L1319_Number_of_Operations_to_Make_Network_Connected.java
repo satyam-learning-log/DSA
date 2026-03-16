@@ -3,7 +3,7 @@ package MinimumSpanningTree_DisjointSetProblems;
 import java.util.*;
 
 public class L1319_Number_of_Operations_to_Make_Network_Connected {
-    
+
     // Find parent with path compression
     private int find(int[] parent, int x) {
         if (parent[x] != x)
